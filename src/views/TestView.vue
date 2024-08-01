@@ -1,60 +1,48 @@
 <template>
   <div class="test">
-    <input type="text" value="으아으아으아아아아"><br>
-    <input type="text" v-model="nick"/><br>
-    <input type="number" v-model="age"><br>
-    <textarea name="" id="" cols="30" rows="3">동해물</textarea><br>
-    <textarea name="" id="" v-model="message" cols="30" rows="3"></textarea><br>
-    <select name="" id="" >
-      <option value="01">몰라</option>
-      <option value="02">서울</option>
-      <option value="03">대구</option>
-      <option value="04" selected>부산</option>
-    </select>
-    <br>
-    <select v-model="city" name="" id="" >
-      <option value="01">몰라</option>
-      <option value="02">서울</option>
-      <option value="03">대구</option>
-      <option value="04">부산</option>
-    </select>
-    
+    <input type="checkbox" id="cdtn_agree" name="cdtn_agree" /><label
+      for="cdtn_agree"
+      >동의</label> <br>
+      
+      <label><input type="checkbox" v-model="agree" />동의</label> <br>
+      <label><input type="checkbox" v-model="agree2"
+        true-value="동의" false-value="비동의" />{{ agree2 }}</label> <br>
+      
+      <div>
+        <p>기본피자에 원하시는 토핑을 추가 하시요</p>
+        <label><input type="checkbox" v-model="pizza" value="치즈"/>치즈</label> <br>
+        <label><input type="checkbox" v-model="pizza" value="파인애플"/>파인애플</label> <br>
+        <label><input type="checkbox" v-model="pizza" value="버섯"/>버섯</label> <br>
+        <p>추가로 토핑은 {{ pizza }} 입니다.</p>
+      </div>
+
+      <div>
+        <p>탕수육 취향은</p>
+        <label><input type="radio" v-model="pork" value="부먹">부먹</label> <br>
+        <label><input type="radio" v-model="pork" value="찍먹">찍먹</label>
+        <p>너의 취향은 <span style="color: red; font-weight: 800;">{{ pork }}</span>이다</p>
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TestView',
-  components: {
-    
-  },
+  name: "TestView",
+  components: {},
   data() {
     return {
-      nick:'으흐루꾸끄루르으',
-      age:30,
-      message:'하느님이 보우ㅏ사',
-      city:'03',
-      
+      agree:false,
+      agree2:"비동의",
+      pizza:[],
+      pork:"찍먹",
+
     };
   },
-  setup() {
-    
-  },
-  created() {
-    
-  },
-  mounted() {
-    
-  },
-  unmounted() {
-    
-  },
-  methods: {
-    
-  }
+
+  mounted() {},
+  unmounted() {},
+  methods: {},
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

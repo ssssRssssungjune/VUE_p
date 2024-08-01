@@ -1,48 +1,45 @@
 <template>
   <div class="test">
-    <input type="checkbox" id="cdtn_agree" name="cdtn_agree" /><label
-      for="cdtn_agree"
-      >동의</label> <br>
-      
-      <label><input type="checkbox" v-model="agree" />동의</label> <br>
-      <label><input type="checkbox" v-model="agree2"
-        true-value="동의" false-value="비동의" />{{ agree2 }}</label> <br>
-      
-      <div>
-        <p>기본피자에 원하시는 토핑을 추가 하시요</p>
-        <label><input type="checkbox" v-model="pizza" value="치즈"/>치즈</label> <br>
-        <label><input type="checkbox" v-model="pizza" value="파인애플"/>파인애플</label> <br>
-        <label><input type="checkbox" v-model="pizza" value="버섯"/>버섯</label> <br>
-        <p>추가로 토핑은 {{ pizza }} 입니다.</p>
-      </div>
-
-      <div>
-        <p>탕수육 취향은</p>
-        <label><input type="radio" v-model="pork" value="부먹">부먹</label> <br>
-        <label><input type="radio" v-model="pork" value="찍먹">찍먹</label>
-        <p>너의 취향은 <span style="color: red; font-weight: 800;">{{ pork }}</span>이다</p>
-      </div>
+    <!-- 속성연결 -->
+     <img src="../test/011.jpg" alt="" title="오!! 하는 유니콘"> <br>
+     <button :disabled="btn_01" :style="color_red">못~누루지롱</button> <br>
+     <img  v-bind:src="imgSrc" v-bind:title="imgTitle"> <br>
+  </div>
+  <div>
+    
+    <button :disabled="btn_02" :style="color_blue">눌러봐</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TestView",
-  components: {},
+  name: 'TestView',
+  components: {
+    
+  },
   data() {
     return {
-      agree:false,
-      agree2:"비동의",
-      pizza:[],
-      pork:"찍먹",
-
+      imgSrc: require("@/test/011.jpg"),
+      imgTitle: '오!하는 유니콘',
+      btn_01: true,
+      btn_02: false,
+      color_blue:{color:"blue",fontSize:"24px"},
+      color_red:{color:"red",fontSize:"24px"},
     };
   },
-
-  mounted() {},
-  unmounted() {},
-  methods: {},
+ 
+  mounted() {
+    
+  },
+  unmounted() {
+    
+  },
+  methods: {
+    
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

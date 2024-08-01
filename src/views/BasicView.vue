@@ -242,7 +242,8 @@ export default {
   created() {},
   mounted() {},
   unmounted() {},
-  methods: { increaseCounter(){
+  methods: {
+    increaseCounter(){
       this.counter = this.counter +1;
     },
     decreaseCounter(){
@@ -276,24 +277,33 @@ export default {
         this.errPwd='비번을 입력하세요';
       } else if(this.pwdValue2===''){
         this.errPwd='비번확인을 입력하세요';
+      } else if(this.pwdValue1.length < 8 || this.pwdValue2.length < 8 ){
+        this.errPwd = '비밀번호는 최소 8자리수 이상입니다.';
       } else if(this.pwdValue1===this.pwdValue2){
-        this.errPwd='';
+        this.errPwd = '비밀번호가 유효합니다.';
       } else {
-        this.errPwd='비번이 일치하지 않습니다.';
+        this.errPwd = '비번이 일치하지 않습니다.';
       }
 
     },
-    changePwd2(){
-      if(this.pwdValue1===''){
-        this.errPwd='비번을 입력하세요';
-      } else if(this.pwdValue2===''){
-        this.errPwd='비번확인을 입력하세요';
-      } else if(this.pwdValue1===this.pwdValue2){
-        this.errPwd='';
-      } else {
-        this.errPwd='비번이 일치하지 않습니다.';
-      }
-
+    hello(){
+      console.log('hello()호출');
+      return '안녕하세요, 반갑습니다.';
+    },
+    changeLastName() {
+      // lastName 변경 시 fullName 업데이트
+      console.log('changeLastName 호출');
+      this.fullName = this.lastName + this.firstName;
+    },
+    changeFirstName() {
+      // firstName 변경 시 fullName 업데이트
+      console.log('changeFirstName 호출');
+      this.fullName = this.lastName + this.firstName;
+    },
+    methodFullName() {
+      // 메소드로 fullName 계산
+      console.log('methodFullName 호출');
+      return this.lastName + this.firstName;
     },
 
   }
@@ -301,18 +311,19 @@ export default {
 </script>
 
 <style scoped>
-table {
+table{
   border-collapse: collapse;
-  width: 100%;
+  width:100%;
 }
-td,
-th {
-  border: 1px solid #ddd;
-  text-align: center;
-  padding: 8px;
+td, th{
+  border:1px solid #ddd;
+  text-align: left;
+  padding : 8px;
 }
-th {
+th{
+  
   text-align: center;
   font-weight: 600;
 }
+
 </style>
